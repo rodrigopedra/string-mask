@@ -4,10 +4,10 @@ var StringMask = (function() {
 		'9': {pattern: /\d/, optional: true},
 		'#': {pattern: /\d/, optional: true, recursive: true},
 		'S': {pattern: /[A-Za-z]/},
-		'U': {pattern: /[A-Za-z]/, transform: 'toLocaleUpperCase'},
-		'L': {pattern: /[A-Za-z]/, transform: 'toLocaleLowerCase'},
-		'N': {pattern: /[0-9A-Za-z]/, transform: 'toLocaleUpperCase'},
-		'n': {pattern: /[0-9A-Za-z]/, transform: 'toLocaleLowerCase'},
+		'U': {pattern: /[A-Za-z]/, transform: function (c) {return c.toLocaleUpperCase();}},
+		'L': {pattern: /[A-Za-z]/, transform: function (c) {return c.toLocaleLowerCase();}},
+		'N': {pattern: /[0-9A-Za-z]/, transform: function (c) {return c.toLocaleUpperCase();}},
+		'n': {pattern: /[0-9A-Za-z]/, transform: function (c) {return c.toLocaleLowerCase();}},
 		'$': {escape: true} 
 	};
 	var isEscaped = function(pattern, pos) {
