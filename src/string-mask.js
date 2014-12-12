@@ -3,9 +3,11 @@ var StringMask = (function() {
 		'0': {pattern: /\d/, _default: '0'},
 		'9': {pattern: /\d/, optional: true},
 		'#': {pattern: /\d/, optional: true, recursive: true},
-		'S': {pattern: /[a-zA-Z]/},
-		'U': {pattern: /[a-zA-Z]/, transform: function (c) { return c.toLocaleUpperCase(); }},
-		'L': {pattern: /[a-zA-Z]/, transform: function (c) { return c.toLocaleLowerCase(); }},
+		'S': {pattern: /[A-Za-z]/},
+		'U': {pattern: /[A-Za-z]/, transform: 'toLocaleUpperCase'},
+		'L': {pattern: /[A-Za-z]/, transform: 'toLocaleLowerCase'},
+		'N': {pattern: /[0-9A-Za-z]/, transform: 'toLocaleUpperCase'},
+		'n': {pattern: /[0-9A-Za-z]/, transform: 'toLocaleLowerCase'},
 		'$': {escape: true} 
 	};
 	var isEscaped = function(pattern, pos) {
